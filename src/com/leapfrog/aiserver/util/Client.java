@@ -14,15 +14,15 @@ import java.util.List;
  * @author USER
  */
 public class Client {
+
     private String name;
     private Socket socket;
-    
+
     private boolean autoReply;
     private String replyMessage;
-    
 
-    private List<Client> blockList=new ArrayList<>();
-    
+    private List<Client> blockList = new ArrayList<>();
+
     public Client() {
     }
 
@@ -46,34 +46,38 @@ public class Client {
     public void setSocket(Socket socket) {
         this.socket = socket;
     }
-    
-    public void block(Client client){
-        blockList.add(client);
+
+    public void block(Client client) {
+        if (!hasBlocked(client)) {
+            blockList.add(client);
+        }
     }
-    public void unblock(Client client){
-        if(hasBlocked(client)){
+
+    public void unblock(Client client) {
+        if (hasBlocked(client)) {
             blockList.remove(client);
         }
     }
-    public boolean hasBlocked(Client client){
-        for(Client c: blockList){
-            if(c.equals(client)){
+
+    public boolean hasBlocked(Client client) {
+        for (Client c : blockList) {
+            if (c.equals(client)) {
                 return true;
             }
         }
         return false;
     }
-    
-    public void setAutoReply(boolean activate,String reply){
-        autoReply=activate;
-        replyMessage=reply;
+
+    public void setAutoReply(boolean activate, String reply) {
+        autoReply = activate;
+        replyMessage = reply;
     }
-    
-    public boolean hasAutoReply(){
+
+    public boolean hasAutoReply() {
         return autoReply;
     }
-    
-    public String getReplyMessage(){
+
+    public String getReplyMessage() {
         return replyMessage;
     }
 }
