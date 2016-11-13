@@ -22,11 +22,11 @@ public class PMCommand extends ChatCommand {
             if (friend != null) {
                 if (!friend.hasBlocked(client)) {
                     PrintStream ps = new PrintStream(friend.getSocket().getOutputStream());
-                    ps.println(tokens[2]);
+                    ps.println("PM from ("+client.getName()+") > "+tokens[2]);
                     ps.flush();
                     if(friend.hasAutoReply()){
                         PrintStream psme=new PrintStream(client.getSocket().getOutputStream());
-                        psme.println(friend.getReplyMessage());
+                        psme.println("Auto Reply from ("+friend.getName()+") > "+friend.getReplyMessage());
                         psme.flush();
                     }
                 }

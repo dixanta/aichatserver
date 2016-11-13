@@ -6,7 +6,6 @@
 package com.leapfrog.aiserver.command;
 
 import com.leapfrog.aiserver.common.util.HttpClient;
-import com.leapfrog.aiserver.util.Client;
 import java.io.IOException;
 import java.io.PrintStream;
 

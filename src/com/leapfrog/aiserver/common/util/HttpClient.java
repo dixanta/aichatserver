@@ -32,7 +32,6 @@ public class HttpClient {
 
     public String get(String link) throws IOException {
         HttpURLConnection conn = (HttpURLConnection) new URL(link).openConnection();
-        System.out.println(link);
         return getContent(conn.getInputStream());
     }
 
