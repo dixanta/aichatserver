@@ -76,6 +76,7 @@ public class ClientListener extends Thread {
             if (handler.getByName(name) == null) {
                 client = new Client(name, socket);
                 handler.addClient(client);
+                broadcastMessage(client, name + " has joined the room");
                 break;
             }else{
                 output.println(name + " is already exists please choose another name");

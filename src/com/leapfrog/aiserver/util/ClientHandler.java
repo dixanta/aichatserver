@@ -20,6 +20,15 @@ public class ClientHandler {
         clients.add(client);
     }
     
+    public boolean removeClient(String name){
+        Client client=getByName(name);
+        if(client!=null){
+            clients.remove(client);
+            return true;
+        }
+        return false;
+    }
+    
     public List<Client> getClients(){
         return clients;
     }

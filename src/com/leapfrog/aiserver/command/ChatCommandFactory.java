@@ -23,6 +23,7 @@ public class ChatCommandFactory {
         cmds.put("unblock", new UnblockCommand());
         cmds.put("autoreply", new AutoReplyCommand());
         cmds.put("web", new WebCommand());
+        cmds.put("kick", new KickCommand());
         return cmds;
     }
     
